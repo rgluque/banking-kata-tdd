@@ -2,7 +2,6 @@ describe("Account", function() {
     var account ;
     beforeEach(function() {
       account = new Account();
-      console.log('generacion de account');
     });
   
     it('When deposit is called', function() {
