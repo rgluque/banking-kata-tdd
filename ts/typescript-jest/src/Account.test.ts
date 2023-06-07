@@ -39,7 +39,7 @@ describe('Account withdraw is called, init with 300 of balance', () => {
 
 })
 
-describe('Account deposit is called, init with 100 of balance', () => {
+describe('Account printStatement is called, init with 100 of balance', () => {
     let account;
     beforeEach(function () {
         account = new Account(100, []);
