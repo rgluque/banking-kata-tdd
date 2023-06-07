@@ -1,8 +1,8 @@
 export class Account {
     balance: number;
     statement;
-    constructor(balance: number, statement: []) {
-        this.statement = statement;
+    constructor(balance: number) {
+        this.statement = [];
         this.balance = balance;
     }
 
@@ -17,18 +17,17 @@ export class Account {
         this.statement.push({
             date: date, amount: '-' + amount, balance: this.balance + amount
         });
-        this.balance = this.balance - amount;
+        this.balance -= amount;
 
     }
 
 
     printStatement(): string {
-        let statemenList: string = "";
-
+        let formatedStatement: string = "";
         this.statement.forEach(element => {
-            statemenList = statemenList.concat(element.date + element.amount + element.balance);
+            formatedStatement = formatedStatement.concat(element.date + element.amount + element.balance);
 
         });
-        return statemenList;
+        return formatedStatement;
     }
 }
