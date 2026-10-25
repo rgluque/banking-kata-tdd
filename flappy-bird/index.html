@@ -57,7 +57,7 @@
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 3);
-    const cw = window.innerWidth, ch = window.innerHeight;
+    const cw = canvas.clientWidth || window.innerWidth, ch = canvas.clientHeight || window.innerHeight;
     canvas.width = Math.round(cw * dpr);
     canvas.height = Math.round(ch * dpr);
     scale = canvas.height / H;
@@ -478,7 +478,8 @@
 
   // --- Entrada ---
   function toWorld(clientX, clientY) {
-    return { x: clientX * dpr / scale, y: clientY * dpr / scale };
+    const r = canvas.getBoundingClientRect();
+    return { x: (clientX - r.left) * dpr / scale, y: (clientY - r.top) * dpr / scale };
   }
   function hitMute(pt) {
     const b = muteBtn();
